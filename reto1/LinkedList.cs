@@ -1,38 +1,14 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-
-namespace reto1
+﻿namespace reto1
 {
-    public class LinkedList
+    internal class LinkedList<T> : List<T>
     {
-        private Node head;
-        private Node tail;
+        private Node<T> head;
+        private Node<T> tail;
         private int size;
 
-
-
-        public void addAtTail(String data)
+        public void addAtFront(T data)
         {
-            Node node = new Node(data);
-
-            if (size == 0)
-            {
-                head = node;
-                tail = node;
-            }
-            else
-            {
-                tail.next = node;
-                node.previous = tail;
-            }
-            tail = node;
-            size++;
-        }
-
-        public void addAtFront(String data)
-        {
-            Node node = new Node(data);
+            Node<T> node = new Node<T>(data);
 
             if (size == 0)
             {
@@ -48,9 +24,27 @@ namespace reto1
             size++;
         }
 
+        public void addAtTail(T data)
+        {
+            Node<T> node = new Node<T>(data);
+
+            if (size == 0)
+            {
+                head = node;
+            }
+            else
+            {
+                tail.next = node;
+                node.previous = tail;
+            }
+
+            tail = node;
+            size++;
+        }
+
         public void remove(int index)
         {
-            Node node = findNode(index);
+            Node<T> node = findNode(index);
 
             if (node == null)
             {
@@ -86,49 +80,14 @@ namespace reto1
             size--;
         }
 
-        public void removeAll()
+        private Node<T> findNode(int index)
         {
-            head = null;
-            tail = null;
-            size = 0;
-
-        }
-        public void setAt(int index, String data)
-        {
-            Node node = findNode(index);
-
-            if (node != null)
-            {
-                node.data = data;
-            }
-        }
-
-        public String getAt(int index)
-        {
-            Node node = findNode(index);
-
-            return node == null ? null : node.data;
-        }
-
-        public LinkedListIterator getIterator()
-        {
-            return new LinkedListIterator(head);
-        }
-
-        public int getSize()
-        {
-            return size;
-        }
-
-        private Node findNode(int index)
-        {
-
             if (index < 0 || index >= size)
             {
                 return null;
             }
 
-            Node node = head;
+            Node<T> node = head;
             int currentIndex = 0;
 
             while (currentIndex != index)
@@ -136,7 +95,50 @@ namespace reto1
                 currentIndex++;
                 node = node.next;
             }
+
             return node;
+        }
+
+        public void removeAll()
+        {
+            head = null;
+            tail = null;
+            size = 0;
+        }
+
+        public int getSize()
+        {
+            return size;
+        }
+
+        public T getAt(int index)
+        {
+            Node<T> node = findNode(index);
+
+            if (node == null)
+            {
+                return default(T);
+            }
+            else
+            {
+                return node.data;
+            }
+
+        }
+
+        public void setAt(int index, T data)
+        {
+            Node<T> node = findNode(index);
+
+            if (node != null)
+            {
+                node.data = data;
+            }
+        }
+
+        public Iterator<T> getIterator()
+        {
+            return new LinkedListIterator<T>(head);
         }
     }
 }

@@ -3,13 +3,13 @@
 
 namespace reto1
 {
-    public class Node
+    internal class Node <T>
     {
-        internal String data;
-        internal Node next;
-        internal Node previous;
+        internal T data;
+        internal Node<T> next;
+        internal Node<T> previous;
 
-        internal Node(String data)
+        internal Node(T data)
         {
             this.data = data;
         }

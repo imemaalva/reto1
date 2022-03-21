@@ -2,11 +2,11 @@
 
 namespace reto1
 {
-    public class LinkedListIterator
+    internal class LinkedListIterator<T> : Iterator<T>
     {
-        private Node currentNode;
+        private Node<T> currentNode;
 
-        public LinkedListIterator(Node startNode)
+        internal LinkedListIterator(Node<T> startNode)
         {
             currentNode = startNode;
         }
@@ -16,9 +16,9 @@ namespace reto1
             return currentNode != null;
         }
 
-        public String next()
+        public T next()
         {
-            String data = currentNode.data;
+            T data = currentNode.data;
 
             currentNode = currentNode.next;
 

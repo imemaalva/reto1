@@ -6,124 +6,129 @@ namespace reto1
     {
         static void Main(string[] args)
         {
-            ArrayList team1 = new ArrayList();
-            ArrayList team2 = new ArrayList();
-            ArrayList team3 = new ArrayList();
+            ArrayList<string> team1 = new ArrayList<string>();
+            ArrayList<string> team2 = new ArrayList<string>();
+            ArrayList<string> team3 = new ArrayList<string>();
 
-            /*LinkedList team1 = new LinkedList();
-            LinkedList team2 = new LinkedList();
-            LinkedList team3 = new LinkedList();*/
+            LinkedList<string> team4 = new LinkedList<string>();
+            LinkedList<string> team5 = new LinkedList<string>();
+            LinkedList<string> team6 = new LinkedList<string>();
 
-            team1.addAtTail("Jesús");
-            team1.addAtTail("Salomón");
-            team1.addAtTail("Yael");
 
-            team2.addAtFront("Christian");
-            team2.addAtFront("Daniel");
-            team2.addAtFront("Diego");
+            method(team1, team2, team3);
+            method(team4, team5, team6);
+        }
+            public static void method(List<string> team1, List<string> team2, List<string> team3) {
+                team1.addAtTail("Jesús");
+                team1.addAtTail("Salomón");
+                team1.addAtTail("Yael");
 
-            team3.addAtFront("Imelda");
+                team2.addAtFront("Christian");
+                team2.addAtFront("Daniel");
+                team2.addAtFront("Diego");
 
-            ArrayListIterator iterator;
-            //LinkedListIterator iterator;
+                team3.addAtFront("Imelda");
 
-            iterator = team1.getIterator();
+                Iterator<string> iterator;
 
-            while (iterator.hasNext())
-            {
-                String name = iterator.next();
-                Console.WriteLine(name);
-            }
+                iterator = team1.getIterator();
 
-            // Debió haber impreso
-            // Jesús
-            // Salomón
-            // Yael
+                while (iterator.hasNext())
+                {
+                    String name = iterator.next();
+                    Console.WriteLine(name);
+                }
 
-            iterator = team2.getIterator();
+                // Debió haber impreso
+                // Jesús
+                // Salomón
+                // Yael
 
-            while (iterator.hasNext())
-            {
-                String name = iterator.next();
-                Console.WriteLine(name);
-            }
+                iterator = team2.getIterator();
 
-            // Debió haber impreso
-            // Diego
-            // Daniel
-            // Cristian
-            team1.remove(0);
-            team1.addAtFront("Rebeca");
-            Console.WriteLine("Team 1 tiene: " + team1.getSize() + " integrantes"); // debe imprimir "Team 1 tiene 3 integrantes"
+                while (iterator.hasNext())
+                {
+                    String name = iterator.next();
+                    Console.WriteLine(name);
+                }
 
-            iterator = team1.getIterator();
+                // Debió haber impreso
+                // Diego
+                // Daniel
+                // Cristian
+                team1.remove(0);
+                team1.addAtFront("Rebeca");
+                Console.WriteLine("Team 1 tiene: " + team1.getSize() + " integrantes"); // debe imprimir "Team 1 tiene 3 integrantes"
 
-            while (iterator.hasNext())
-            {
-                String name = iterator.next();
-                Console.WriteLine(name);
-            }
+                iterator = team1.getIterator();
 
-            // Debió haber impreso
-            // Rebeca
-            // Salomón
-            // Yael
+                while (iterator.hasNext())
+                {
+                    String name = iterator.next();
+                    Console.WriteLine(name);
+                }
 
-            team2.remove(2);
-            team2.addAtTail("Rita");
-            Console.WriteLine("Team 2 tiene: " + team2.getSize() + " integrantes"); // debe imprimir "Team 2 tiene 3 integrantes"
+                // Debió haber impreso
+                // Rebeca
+                // Salomón
+                // Yael
 
-            iterator = team2.getIterator();
+                team2.remove(2);
+                team2.addAtTail("Rita");
+                Console.WriteLine("Team 2 tiene: " + team2.getSize() + " integrantes"); // debe imprimir "Team 2 tiene 3 integrantes"
 
-            while (iterator.hasNext())
-            {
-                String name = iterator.next();
-                Console.WriteLine(name);
-            }
+                iterator = team2.getIterator();
 
-            // Debió haber impreso
-            // Diego
-            // Daniel
-            // Rita
-            team3.remove(0);
-            team3.remove(0); // El elemento no existe pero el programa no debe cerrarse por algún error
+                while (iterator.hasNext())
+                {
+                    String name = iterator.next();
+                    Console.WriteLine(name);
+                }
 
-            team3.addAtTail("Tadeo");
-            team3.addAtFront("Isai");
+                // Debió haber impreso
+                // Diego
+                // Daniel
+                // Rita
+                team3.remove(0);
+                team3.remove(0); // El elemento no existe pero el programa no debe cerrarse por algún error
 
-            Console.WriteLine("Team 3 tiene: " + team3.getSize() + " integrantes"); // debe imprimir "Team 3 tiene 2 integrantes"
+                team3.addAtTail("Tadeo");
+                team3.addAtFront("Isai");
 
-            iterator = team3.getIterator();
+                Console.WriteLine("Team 3 tiene: " + team3.getSize() + " integrantes"); // debe imprimir "Team 3 tiene 2 integrantes"
 
-            while (iterator.hasNext())
-            {
-                String name = iterator.next();
-                Console.WriteLine(name);
-            }
+                iterator = team3.getIterator();
 
-            // Debió haber impreso
-            // Tadeo
-            // Isai
+                while (iterator.hasNext())
+                {
+                    String name = iterator.next();
+                    Console.WriteLine(name);
+                }
 
-            if (team1.getAt(1).Equals("Salomón"))
-            {
-                team1.setAt(1, "Luis");
-            }
+                // Debió haber impreso
+                // Tadeo
+                // Isai
 
-            Console.WriteLine("Team 1 tiene: " + team1.getSize() + " integrantes"); // debe imprimir "Team 1 tiene 3 integrantes"
+                if (team1.getAt(1).Equals("Salomón"))
+                {
+                    team1.setAt(1, "Luis");
+                }
 
-            iterator = team1.getIterator();
+                Console.WriteLine("Team 1 tiene: " + team1.getSize() + " integrantes"); // debe imprimir "Team 1 tiene 3 integrantes"
 
-            while (iterator.hasNext())
-            {
-                String name = iterator.next();
-                Console.WriteLine(name);
-            }
+                iterator = team1.getIterator();
 
-            // Debió haber impreso
-            // Rebeca
-            // Luis
-            // Yael
+                while (iterator.hasNext())
+                {
+                    String name = iterator.next();
+                    Console.WriteLine(name);
+                }
+
+                // Debió haber impreso
+                // Rebeca
+                // Luis
+                // Yael
+            
         }
     }
 }
